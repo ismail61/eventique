@@ -1,11 +1,18 @@
-require('dotenv').config();
+ require('dotenv').config();
 const express = require('express');
 const routes = require('./routes');
 const connectToDatabase = require('./internal/db.init');
 const projectConfig = require('./config');
 const startingMiddleware = require('./middlewares/starting.middleware');
+const stripe = require('stripe')('stripe_secret_key')
 
-const bootstrap = async () => {
+
+
+
+
+
+
+const bootstrap = async() => {
     const app = express();
 
     startingMiddleware(app);
@@ -14,8 +21,32 @@ const bootstrap = async () => {
     // Set trust proxy to enable 'X-Forwarded-For' header
     app.set('trust proxy', true);
 
+
     // Use the main router
     app.use(routes);
+    //payment system integration
+    app.post("/api/create-checkout-session/", async(req, res) => {
+        const products = req.body;
+        const lineItems = products.map((product) => ({
+            price_data: {
+                currency: 'gbp',
+                product_data: {
+                    name: product.name
+                },
+                unit_amount: product.price * 100,
+            },
+            quantity: 10
+        }));
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: lineItems,
+            mode: 'payment',
+            success_url: `http://localhost:3000/success`,
+            cancel_url: `http://localhost:3000/cancel`,
+        });
+        res.json({ id: session.id });
+    })
+
 
     // unexpected  router hit shows error
     app.all('*', (req, res, next) => {
@@ -44,6 +75,6 @@ const bootstrap = async () => {
     });
 };
 
-(async () => {
+(async() => {
     await bootstrap();
 })();
