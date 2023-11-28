@@ -5,10 +5,12 @@ const ItemSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    description: {
+    vendorId: {
       type: String,
       required: true,
+      index: true,
     },
+    description: String,
     price: {
       type: Number,
       required: true,
@@ -19,11 +21,10 @@ const ItemSchema = new mongoose.Schema({
       required: true,
       min: 1,
     },
-    photo: {
+    image: {
       type: String,
       required: true,
     },
-    rating: Number,
   }, 
   {
   timestamps: true,

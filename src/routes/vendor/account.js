@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../../controllers/auth/user');
+const vendorAccountController = require('../../controllers/vendor/account');
+const { vendorAuthentication } = require('../../middlewares/authenticate');
 
-router.get('', authController.signup);
-router.patch('', authController.login);
+router.get('', vendorAuthentication, vendorAccountController.me);
+router.patch('', vendorAuthentication, vendorAccountController.update);
+router.post('change-password', vendorAuthentication, vendorAccountController.changePassword);
 
 module.exports = router;

@@ -12,7 +12,7 @@ const projectConfig = {
         port: parseInt(PORT) || 3001,
     },
     db: {
-        url: MONGODB_URL || 'mongodb://localhost:27017/hard-drive'
+        url: MONGODB_URL || 'mongodb://localhost:27017/eventique'
     },
     jwt: {
         key: JWT_SECRET_KEY || 'secret',

@@ -5,6 +5,7 @@ const cors = require('cors');
 const startingMiddleware = (app) => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(express.static('public'));
     app.use(express.json());
     app.use(cors({
         origin: true,

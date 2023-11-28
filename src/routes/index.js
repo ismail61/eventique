@@ -10,5 +10,4 @@ router.use('/vendor-auth', vendorAuthRoutes);
 router.use('/vendor', vendorRoutes);
 router.use('/user', userRoutes);
 
-
 module.exports = router;

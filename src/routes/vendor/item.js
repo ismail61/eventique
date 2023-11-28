@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../../controllers/auth/user');
+const itemController = require('../../controllers/vendor/item');
 
-router.get('/', authController.checkAuth);
-router.get('/:id', authController.checkAuth);
-router.post('/add', authController.checkAuth);
-router.patch('/:id/update', authController.checkAuth);
+router.get('/', itemController.getAllItems);
+router.get('/:id', itemController.getItem);
+router.post('/add', itemController.addNewItem);
+router.patch('/:id/update', itemController.updateItem);
 
 module.exports = router;

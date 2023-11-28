@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../../controllers/auth/user');
+const userAccountController = require('../../controllers/user/account');
+const { userAuthentication } = require('../../middlewares/authenticate');
 
-router.get('', authController.signup);
-router.patch('', authController.login);
+router.get('', userAuthentication, userAccountController.me);
+router.patch('', userAuthentication, userAccountController.update);
+router.post('change-password', userAuthentication, userAccountController.changePassword);
 
 module.exports = router;

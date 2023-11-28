@@ -18,6 +18,27 @@ const findCart = async (query) => {
     }
 }
 
+const incrementItemInCart = async (userId, itemId, quantity) => {
+    try {
+        return await CartModel.findOneAndUpdate({
+            userId,
+            'items.id': itemId,
+        }, { $inc: { 'items.$.quantity': quantity } }, { new: true }).lean();
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+const addItemInCart = async (userId, item) => {
+    try {
+        return await CartModel.findOneAndUpdate({ userId }, { $push: { items: item } }, { new: true }).lean();
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
 const updateCart = async (query, data) => {
     try {
         return await CartModel.findOneAndUpdate(query, { $set: data }, { new: true }).lean();
@@ -37,13 +58,22 @@ const getAllCarts = async (query, offset, limit) => {
     }
 }
 
-const getCartsCount = async (query) => {
+const deleteCart = async (query) => {
     try {
-        return await CartModel.countDocuments(query);
+        return await CartModel.findOneAndDelete(query);
     } catch (error) {
         console.log(error);
         return null;
     }
 }
 
-module.exports = { getAllCarts, addCart, findCart, getCartsCount, updateCart }
+const deleteItem = async (itemId, userId) => {
+    try {
+        return await CartModel.findOneAndUpdate({ userId, 'items.id': itemId }, { $pull: { items: { id: itemId } } });
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+module.exports = { getAllCarts, addCart, findCart, deleteCart, updateCart, addItemInCart, incrementItemInCart, deleteItem }

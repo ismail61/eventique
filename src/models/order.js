@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const OrderStatusEnum = require('./enum');
 
-const ProductSchema = new mongoose.Schema(
+const ItemSchema = new mongoose.Schema(
   {
     id: {
       type: String,
@@ -17,11 +17,6 @@ const ProductSchema = new mongoose.Schema(
     },
     quantity: {
       type: Number,
-      trim: true,
-      required: true,
-    },
-    photo: {
-      type: String,
       trim: true,
       required: true,
     },
@@ -41,8 +36,8 @@ const orderSchema = new mongoose.Schema({
     type: String,
     default: OrderStatusEnum.CONFIRMED,
   },
-  products: {
-    type: [ProductSchema],
+  items: {
+    type: [ItemSchema],
   },
   paymentMethod: String,
   totalPrice: {

@@ -1,26 +1,54 @@
-const { checkDeviceValidation } = require('../../validations/customer');
-const { getSingleOrder } = require('../../services/order');
-const { getScansCount } = require('../../services/scan');
-const HardDriveDeletionStatusEnum = require('../../models/enum');
+const {
+    findUser, findUserWithPassword, updateUser,
+} = require('../../services/user');
+const { hashValue, compareHash } = require('../../utils/auth');
+const { customerAccountInfoValidation } = require('../../validations/user');
+const { changePasswordValidation } = require('../../validations/common');
 
-async function checkDevice(req, res) {
-    // Validate information
-    const validation = checkDeviceValidation(req.body);
-    if (validation.error) {
-        return res.status(422).json({ success: false, message: validation.error.details[0].message });
-    }
-    const { orderId, authCode } = req.body;
-
-    const order = await getSingleOrder({ _id: orderId, authCode });
-    if (!order) {
-        return res.status(400).json({ success: false, message: 'Could not find the device info.' });
-    }
-
-    const [deletedDevices, totalDevices] = await Promise.all([
-        await getScansCount({ deletionStatus: HardDriveDeletionStatusEnum.DELETED, orderId: order._id }),
-        await getScansCount({ orderId: order._id }),
-    ])
-    return res.status(200).json({ success: true, data: { order, deletedDevices, totalDevices } });
+async function me(req, res) {
+    const user = await findUser({ _id: req.user?._id });
+    return res.status(201).json({ success: true, data: user });
 }
 
-module.exports = { checkDevice };
+async function update(req, res) {
+    try {
+        const validation = customerAccountInfoValidation(req.body);
+        if (validation.error) {
+            return res.status(422).json({ success: false, message: validation.error.details[0].message });
+        }
+
+        const user = await updateUser({ _id: req.user?._id }, req.body);
+        if (!user) {
+            return res.status(400).json({ success: false, message: 'Failed to update user own information' });
+        }
+        return res.json({ success: true, data: user });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+}
+
+async function changePassword(req, res) {
+    try {
+        const validation = changePasswordValidation(req.body);
+        if (validation.error) {
+            return res.status(422).json({ success: false, message: validation.error.details[0].message });
+        }
+        const user = await findUserWithPassword({ _id: req.user?._id });
+        const passwordMatch = await compareHash(currentPassword, user.password);
+        if (!passwordMatch) {
+            return res.status(422).json({ success: false, message: 'Current password does not work' });
+        }
+        const hashPassword = hashValue(req.body.newPassword)
+        const updatedUser = await updateUser({ _id: req.user?._id }, { password: hashPassword });
+        if (!updatedUser) {
+            return res.status(400).json({ success: false, message: 'Failed to change password' });
+        }
+        return res.json({ success: true, data: updatedUser });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+}
+
+module.exports = { me, update, changePassword };

@@ -3,9 +3,9 @@ const { getSingleOrder } = require('../../services/order');
 const { getScansCount } = require('../../services/scan');
 const HardDriveDeletionStatusEnum = require('../../models/enum');
 
-async function checkDevice(req, res) {
+async function createOrder(req, res) {
     // Validate information
-    const validation = checkDeviceValidation(req.body);
+    const validation = createOrderValidation(req.body);
     if (validation.error) {
         return res.status(422).json({ success: false, message: validation.error.details[0].message });
     }
@@ -23,4 +23,4 @@ async function checkDevice(req, res) {
     return res.status(200).json({ success: true, data: { order, deletedDevices, totalDevices } });
 }
 
-module.exports = { checkDevice };
+module.exports = { createOrder };
