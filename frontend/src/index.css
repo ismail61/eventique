@@ -1,0 +1,685 @@
+ /* Global Styles */
+
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: rgb(233, 210, 218);
+ }
+
+ /* Add CSS styles for search bar, profile icon, and shopping cart */
+
+ .search-profile-cart {
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     margin-top: 10px;
+     margin-right: 20px;
+     gap: 10px;
+ }
+
+ .search-bar {
+     margin-right: 10px;
+     padding: 5px;
+ }
+
+ .profile-icon,
+ .shopping-cart {
+     font-size: 24px;
+     margin-right: 10px;
+     color: white;
+     cursor: pointer;
+ }
+
+ /* Navigation Styles */
+
+ nav {
+     display: flex;
+     align-items: center;
+     background-color: #007EEE;
+     color: white;
+     padding: 20px;
+ }
+
+ .logo {
+     margin-right: 10px;
+ }
+
+ .logo img {
+     height: 200px;
+     /* Adjust the height as needed */
+ }
+
+ .tabs {
+     display: flex;
+     gap: 10px;
+     margin-left: auto;
+ }
+
+ .tab {
+     background-color: #007EEE;
+     color: white;
+     border: none;
+     padding: 8px 12px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .tab:hover {
+     background-color: #005CB3;
+ }
+
+ .tab:focus {
+     outline: none;
+ }
+
+ nav ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     list-style: none;
+     display: flex;
+ }
+
+ nav ul li {
+     display: inline-block;
+     margin-right: 10px;
+ }
+
+ nav ul li a {
+     color: white;
+     text-decoration: none;
+ }
+
+ /* Hero Section Styles */
+
+ .hero {
+     background: linear-gradient(#007EEE, rgb(233, 210, 218));
+     color: #FFF;
+     text-align: center;
+     padding: 100px;
+ }
+
+ .hero-content h1 {
+     font-size: 48px;
+     margin-bottom: 20px;
+ }
+
+ .hero-content p {
+     font-size: 24px;
+     margin-bottom: 40px;
+ }
+
+ /* Packages Section Styles */
+
+ .packages {
+     background-color: rgb(233, 210, 218);
+     padding: 80px;
+     height: auto;
+ }
+
+ .packages h2 {
+     text-align: center;
+ }
+
+ .package-list {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+
+ .package-card {
+     background-color: #FFA9A9;
+     color: #FFF;
+     text-align: center;
+     padding: 20px;
+     margin: 20px;
+     width: 300px;
+ }
+
+ /* Media query for smaller screens */
+
+ @media (max-width: 768px) {
+     .package-card {
+         width: 90%;
+         /* Adjust the width as per your preference */
+     }
+ }
+
+ .package-card img {
+     width: 200px;
+     height: 200px;
+     margin-bottom: 20px;
+ }
+
+ .package-card h3 {
+     font-size: 24px;
+     margin-bottom: 10px;
+ }
+
+ .package-card p {
+     font-size: 16px;
+     margin-bottom: 20px;
+ }
+
+ /* About Section Styles */
+
+ .about {
+     background-color: #FFB037;
+     padding: 80px;
+     color: #FFF;
+ }
+
+ .about h2 {
+     text-align: center;
+     margin-bottom: 40px;
+ }
+
+ /* FAQ Section Styles */
+
+ .faq {
+     background: linear-gradient(#499E58, #3c8349);
+     color: #FFF;
+     padding: 80px;
+     text-align: center;
+ }
+
+ /* Footer Styles */
+
+ footer {
+     background-color: #007EEE;
+     color: #FFF;
+     padding: 20px;
+     text-align: center;
+ }
+
+ .carousel-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     background: rgb(233, 210, 218);
+ }
+
+ .carousel-inner {
+     width: 100%;
+ }
+
+ .section {
+     border: none;
+     cursor: pointer;
+ }
+
+ .section-content {
+     margin-top: 10px;
+ }
+
+ .question {
+     font-weight: bold;
+     font-style: italic;
+     font-size: larger;
+     text-align: left;
+ }
+
+ .answer {
+     padding-bottom: 1.5cm;
+     text-align: left;
+ }
+
+ __
+ /* Global Styles */
+
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+ }
+
+ /* Navigation Styles */
+
+ nav {
+     display: flex;
+     align-items: center;
+     background-color: #007EEE;
+     color: white;
+     padding: 20px;
+ }
+
+ .logo {
+     margin-right: 10px;
+ }
+
+ .logo img {
+     height: 200px;
+     /* Adjust the height as needed */
+ }
+
+ .tabs {
+     display: flex;
+     gap: 10px;
+ }
+
+ .tab {
+     background-color: #007EEE;
+     color: white;
+     border: none;
+     padding: 8px 12px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .tab:hover {
+     background-color: #005CB3;
+ }
+
+ .tab:focus {
+     outline: none;
+ }
+
+ nav ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     list-style: none;
+     display: flex;
+ }
+
+ nav ul li {
+     display: inline-block;
+     margin-right: 10px;
+ }
+
+ nav ul li a {
+     color: white;
+     text-decoration: none;
+ }
+
+ /* Hero Section Styles */
+
+ .hero {
+     background: linear-gradient(#007EEE, rgb(233, 210, 218));
+     color: #FFF;
+     text-align: center;
+     padding: 100px;
+ }
+
+ .hero-content h1 {
+     font-size: 48px;
+     margin-bottom: 20px;
+ }
+
+ .hero-content p {
+     font-size: 24px;
+     margin-bottom: 40px;
+ }
+
+ /* Footer Styles */
+
+ footer {
+     background-color: #007EEE;
+     color: #FFF;
+     padding: 20px;
+     text-align: center;
+ }
+
+ /* Sign-up Form Styles */
+
+ .signup-form {
+     max-width: 400px;
+     margin: 0 auto;
+ }
+
+ .signup-form label {
+     display: block;
+     margin-bottom: 10px;
+ }
+
+ .signup-form input {
+     width: 100%;
+     padding: 8px;
+     margin-bottom: 20px;
+ }
+
+ .signup-form button {
+     background-color: #007EEE;
+     color: #FFF;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .signup-form button:hover {
+     background-color: #005CB3;
+ }
+
+ /* Sign-in Form Styles */
+
+ .signin-form {
+     max-width: 400px;
+     margin: 0 auto;
+ }
+
+ .signin-form label {
+     display: block;
+     margin-bottom: 10px;
+ }
+
+ .signin-form input {
+     width: 100%;
+     padding: 8px;
+     margin-bottom: 20px;
+ }
+
+ .signin-form button {
+     background-color: #007EEE;
+     color: #FFF;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .signin-form button:hover {
+     background-color: #005CB3;
+ }
+
+ .forgot-password {
+     margin-top: 10px;
+     font-size: 14px;
+     text-align: right;
+ }
+
+ /* Profile Settings Styles */
+
+ .profile-settings {
+     max-width: 600px;
+     margin: 50px auto;
+     padding: 20px;
+     background-color: #f7caca;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .profile-settings h2 {
+     font-size: 24px;
+     margin-bottom: 20px;
+ }
+
+ .profile-settings label {
+     display: block;
+     margin-bottom: 10px;
+ }
+
+ .profile-settings input[type="text"],
+ .profile-settings input[type="email"],
+ .profile-settings select {
+     width: 100%;
+     padding: 8px;
+     border: 1px solid #CCC;
+     border-radius: 4px;
+ }
+
+ .profile-settings button {
+     background-color: #007EEE;
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .profile-settings button:hover {
+     background-color: #005CB3;
+ }
+
+ /* Logout Page Styles */
+
+ .logout {
+     max-width: 600px;
+     margin: 50px auto;
+     padding: 20px;
+     background-color: #FFF;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     text-align: center;
+ }
+
+ .logout h2 {
+     font-size: 24px;
+     margin-bottom: 20px;
+ }
+
+ .logout p {
+     font-size: 16px;
+     margin-bottom: 40px;
+ }
+
+ .logout button {
+     background-color: #007EEE;
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .logout button:hover {
+     background-color: #005CB3;
+ }
+
+ footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+ }
+
+ /* Sign-up Form Styles */
+
+ .signup-form {
+     max-width: 400px;
+     margin: 0 auto;
+ }
+
+ .signup-form label {
+     display: block;
+     margin-bottom: 10px;
+ }
+
+ .signup-form input {
+     width: 100%;
+     padding: 8px;
+     margin-bottom: 20px;
+ }
+
+ .signup-form button {
+     background-color: #007EEE;
+     color: #FFF;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .signup-form button:hover {
+     background-color: #005CB3;
+ }
+
+ /* Sign-in Form Styles */
+
+ .signin-form {
+     max-width: 400px;
+     margin: 0 auto;
+ }
+
+ .signin-form label {
+     display: block;
+     margin-bottom: 10px;
+ }
+
+ .signin-form input {
+     width: 100%;
+     padding: 8px;
+     margin-bottom: 20px;
+ }
+
+ .signin-form button {
+     background-color: #007EEE;
+     color: #FFF;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .signin-form button:hover {
+     background-color: #005CB3;
+ }
+
+ .forgot-password {
+     margin-top: 10px;
+     font-size: 14px;
+     text-align: right;
+ }
+
+ /* Profile Settings Styles */
+
+ .profile-settings {
+     max-width: 600px;
+     margin: 50px auto;
+     padding: 20px;
+     background-color: #FFA9A9;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .profile-settings h2 {
+     font-size: 24px;
+     margin-bottom: 20px;
+ }
+
+ .profile-settings label {
+     display: block;
+     margin-bottom: 10px;
+ }
+
+ .profile-settings input[type="text"],
+ .profile-settings input[type="email"],
+ .profile-settings select {
+     width: 100%;
+     padding: 8px;
+     border: 1px solid #CCC;
+     border-radius: 4px;
+ }
+
+ .profile-settings button {
+     background-color: #007EEE;
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .profile-settings button:hover {
+     background-color: #005CB3;
+ }
+
+ /* Logout Page Styles */
+
+ .logout {
+     max-width: 600px;
+     margin: 50px auto;
+     padding: 20px;
+     background-color: #FFF;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     text-align: center;
+ }
+
+ .logout h2 {
+     font-size: 24px;
+     margin-bottom: 20px;
+ }
+
+ .logout p {
+     font-size: 16px;
+     margin-bottom: 40px;
+ }
+
+ .logout button {
+     background-color: #007EEE;
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ .logout button:hover {
+     background-color: #005CB3;
+ }
+
+ .change-password {
+     max-width: 400px;
+     margin: 50px auto;
+     background-color: #fff;
+     padding: 20px;
+     border-radius: 5px;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+ }
+
+ .change-password h2 {
+     font-size: 24px;
+     margin-bottom: 20px;
+     text-align: center;
+ }
+
+ .change-password label {
+     display: block;
+     font-size: 16px;
+     margin-bottom: 5px;
+ }
+
+ .change-password input[type="password"] {
+     width: 100%;
+     padding: 10px;
+     font-size: 16px;
+     border-radius: 3px;
+     border: 1px solid #ccc;
+     margin-bottom: 10px;
+ }
+
+ .change-password button[type="submit"] {
+     background-color: #333;
+     color: #fff;
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     border-radius: 3px;
+     cursor: pointer;
+     width: 100%;
+ }
+
+ /* No. of items */
+
+ .count {
+     display: flex;
+     width: 25px;
+     height: 25px;
+     background-color: #FFA9A9;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     border-radius: 50%;
+     position: absolute;
+     top: 15%;
+     right: 300px;
+ }
+
+ .websiteContent {
+     background-color: rgb(233, 210, 218);
+     padding: 80px;
+ }
+
+ .websiteContent_service {
+     background-color: rgb(233, 210, 218);
+     padding: 20px;
+ }

@@ -1,0 +1,115 @@
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #007EEE;
+    color: white;
+    padding: 20px;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.logo img {
+    height: 200px;
+    /* Adjust the height as needed */
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.tab {
+    background-color: #007EEE;
+    color: white;
+    border: none;
+    padding: 2px 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tab:hover {
+    background-color: #005CB3;
+}
+
+.tab:focus {
+    outline: none;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero_change_password {
+    background: linear-gradient(#007EEE, rgb(233, 210, 218));
+    color: blue;
+    text-align: center;
+    padding: 80px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.change-password {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.change-password h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.change-password label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.change-password input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.change-password button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+}

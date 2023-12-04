@@ -1,0 +1,66 @@
+nav {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 20px;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.logo img {
+    height: 200px;
+    /* Adjust the height as needed */
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.tab {
+    background-color: #007EEE;
+    color: white;
+    border: none;
+    padding: 2px 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tab:hover {
+    background-color: #005CB3;
+}
+
+.tab:focus {
+    outline: none;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
